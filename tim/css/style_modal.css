@@ -1,0 +1,57 @@
+/* Мобильная адаптация модальных окон */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 2% auto;
+    padding: 15px;
+    border: 1px solid #888;
+    width: 95%;
+    max-width: 95%;
+    border-radius: 10px;
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Плавная прокрутка на iOS */
+}
+
+/* Адаптация для очень маленьких экранов */
+@media (max-width: 480px) {
+    .modal-content {
+        margin: 1% auto;
+        padding: 10px;
+        width: 98%;
+        max-height: 95vh;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+        line-height: 1.2;
+    }
+    
+    .modal-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .modal-tab {
+        flex: 1 0 45%;
+        margin: 2px;
+        font-size: 0.8rem;
+        padding: 8px 5px;
+    }
+}
+
+/* Улучшение прокрутки на Android */
+.modal-content {
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+}
