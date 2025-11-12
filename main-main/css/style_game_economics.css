@@ -1,0 +1,706 @@
+/* style_game_economics.css - ОБНОВЛЕННЫЙ С АДАПТИВНОСТЬЮ */
+.game-levels {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.level-card {
+    background: var(--gradient-card);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid var(--border-color);
+    flex: 1;
+    min-width: 280px;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Мобильные стили для карточек уровней */
+@media (max-width: 768px) {
+    .game-levels {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .level-card {
+        min-width: 100%;
+        max-width: 100%;
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .level-card {
+        padding: 18px 12px;
+    }
+    
+    .level-icon {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+    
+    .level-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .level-card p {
+        font-size: 0.9rem;
+    }
+}
+
+.game-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.game-content.active {
+    display: block;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background: var(--gradient-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Мобильные стили для заголовка игры */
+@media (max-width: 768px) {
+    .game-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    
+    .game-title {
+        font-size: 1.2rem;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .btn-back {
+        align-self: stretch;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-header {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .game-title {
+        font-size: 1.1rem;
+    }
+    
+    .level-indicator {
+        font-size: 0.8rem;
+        padding: 4px 12px;
+    }
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--gradient-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+    min-width: 80px;
+}
+
+/* Мобильные стили для статистики */
+@media (max-width: 480px) {
+    .game-stats {
+        padding: 12px;
+    }
+    
+    .stat-item {
+        min-width: 70px;
+    }
+    
+    .stat-value {
+        font-size: 1.3rem;
+    }
+    
+    .stat-item div:last-child {
+        font-size: 0.8rem;
+    }
+}
+
+.hint-container {
+    background: var(--gradient-accent);
+    padding: 15px 20px;
+    border-radius: var(--radius);
+    margin: 15px 0;
+    border-left: 4px solid;
+    border-image: var(--gradient-primary);
+    border-image-slice: 1;
+    box-shadow: var(--shadow);
+}
+
+/* Мобильные стили для подсказок */
+@media (max-width: 480px) {
+    .hint-container {
+        padding: 12px 15px;
+        margin: 12px 0;
+    }
+    
+    .hint-title {
+        font-size: 0.9rem;
+    }
+    
+    .hint-container p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+}
+
+.scenario {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: var(--gradient-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+/* Мобильные стили для сценариев */
+@media (max-width: 768px) {
+    .scenario {
+        padding: 18px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scenario {
+        padding: 15px;
+        margin-bottom: 18px;
+    }
+    
+    .scenario-title {
+        font-size: 1.1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .scenario p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+.options {
+    margin: 20px 0;
+}
+
+.option {
+    padding: 15px 20px;
+    margin: 10px 0;
+    background: var(--gradient-card);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+/* Мобильные стили для вариантов ответов */
+@media (max-width: 768px) {
+    .option {
+        padding: 15px;
+        margin: 8px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .option {
+        padding: 12px 15px;
+        margin: 6px 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .option input {
+        margin-right: 0;
+        align-self: flex-start;
+    }
+    
+    .option-label {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+
+/* Адаптивные таблицы для мобильных */
+.accounting-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--gradient-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+    .accounting-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    .accounting-table th,
+    .accounting-table td {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .accounting-table th,
+    .accounting-table td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+}
+
+.transaction-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    color: var(--text-color);
+    font-family: 'Fira Code', monospace;
+}
+
+.game-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Мобильные стили для кнопок управления */
+@media (max-width: 768px) {
+    .game-controls {
+        gap: 8px;
+        margin-top: 20px;
+    }
+    
+    .btn {
+        flex: 1;
+        min-width: 150px;
+        justify-content: center;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-controls {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .btn {
+        min-width: 100%;
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+.progress-container {
+    margin: 20px 0;
+}
+
+.progress-bar {
+    height: 10px;
+    background: var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.game-complete {
+    text-align: center;
+    padding: 40px 30px;
+    background: var(--gradient-card);
+    border-radius: var(--radius);
+    border: 2px solid var(--success-color);
+    display: none;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.game-complete::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-success);
+}
+
+.game-complete.active {
+    display: block;
+    animation: bounceIn 0.8s ease;
+}
+
+.completion-badge {
+    font-size: 4rem;
+    color: var(--success-color);
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+.final-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.final-stat {
+    text-align: center;
+    padding: 15px;
+    background: var(--gradient-accent);
+    border-radius: var(--radius);
+    min-width: 150px;
+}
+
+.final-stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.level-progress {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.level-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--border-color);
+    transition: var(--transition);
+}
+
+.level-dot.completed {
+    background: var(--gradient-success);
+    transform: scale(1.2);
+}
+
+.level-dot.current {
+    background: var(--gradient-primary);
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.correct-answer {
+    background: var(--gradient-success) !important;
+    color: white !important;
+    border-color: var(--success-color) !important;
+}
+
+.wrong-answer {
+    background: var(--gradient-secondary) !important;
+    color: white !important;
+    border-color: var(--accent-color) !important;
+}
+
+.level-indicator {
+    display: inline-block;
+    padding: 5px 15px;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.level-2 .level-indicator {
+    background: var(--gradient-warning);
+}
+
+.level-3 .level-indicator {
+    background: var(--gradient-secondary);
+}
+
+.game-description {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Специфические стили для экономических задач */
+.financial-data {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.data-item {
+    padding: 15px;
+    background: var(--gradient-card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+/* Мобильные стили для финансовых данных */
+@media (max-width: 480px) {
+    .financial-data {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .data-item {
+        padding: 12px;
+    }
+    
+    .data-value {
+        font-size: 1.1rem;
+    }
+    
+    .data-label {
+        font-size: 0.8rem;
+    }
+}
+
+.calculation-area {
+    background: var(--gradient-accent);
+    padding: 20px;
+    border-radius: var(--radius);
+    margin: 20px 0;
+    border: 1px solid var(--border-color);
+}
+
+/* Мобильные стили для области расчетов */
+@media (max-width: 480px) {
+    .calculation-area {
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .calculation-title {
+        font-size: 0.9rem;
+    }
+    
+    .formula {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+}
+
+.calculation-title {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.formula {
+    font-family: 'Fira Code', monospace;
+    background: var(--card-bg);
+    padding: 10px 15px;
+    border-radius: var(--radius);
+    margin: 10px 0;
+    border-left: 4px solid var(--primary-color);
+}
+
+.transaction-journal {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--gradient-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.transaction-journal th,
+.transaction-journal td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.transaction-journal th {
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: 600;
+}
+
+.transaction-journal tr:last-child td {
+    border-bottom: none;
+}
+
+.debit {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.credit {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Адаптация для очень маленьких экранов */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    .section {
+        padding: 20px 15px;
+    }
+    
+    .game-container {
+        padding: 20px 15px;
+    }
+    
+    .scenario-title {
+        font-size: 1rem;
+    }
+    
+    .option-label {
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        font-size: 0.9rem;
+        padding: 12px 16px;
+    }
+    
+    .financial-data {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Улучшения для горизонтальной ориентации на мобильных */
+@media (max-height: 500px) and (orientation: landscape) {
+    .game-levels {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .level-card {
+        min-width: 200px;
+        flex-shrink: 0;
+    }
+    
+    .game-stats {
+        padding: 10px 15px;
+    }
+    
+    .scenario {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+/* Улучшения доступности для сенсорных устройств */
+@media (hover: none) and (pointer: coarse) {
+    .option:hover,
+    .level-card:hover {
+        transform: none;
+    }
+    
+    .option:active,
+    .level-card:active {
+        transform: scale(0.98);
+    }
+    
+    .btn:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Специальные стили для длинных текстов в вариантах ответов бухгалтерских проводок */
+.option-label {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 480px) {
+    .option-label {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+}
