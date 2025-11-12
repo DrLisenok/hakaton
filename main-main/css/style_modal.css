@@ -1,0 +1,530 @@
+/* Мобильная адаптация модальных окон */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 2% auto;
+    padding: 15px;
+    border: 1px solid #888;
+    width: 95%;
+    max-width: 95%;
+    border-radius: 10px;
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Плавная прокрутка на iOS */
+}
+
+/* Адаптация для очень маленьких экранов */
+@media (max-width: 480px) {
+    .modal-content {
+        margin: 1% auto;
+        padding: 10px;
+        width: 98%;
+        max-height: 95vh;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+        line-height: 1.2;
+    }
+    
+    .modal-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .modal-tab {
+        flex: 1 0 45%;
+        margin: 2px;
+        font-size: 0.8rem;
+        padding: 8px 5px;
+    }
+}
+
+/* Улучшение прокрутки на Android */
+.modal-content {
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ===== ULTRA-RESPONSIVE IMPROVEMENTS ===== */
+
+/* Очень маленькие телефоны (до 320px) */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 8px;
+    }
+    
+    .hero-title {
+        font-size: 1.6rem;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+    
+    .section {
+        padding: 15px 12px;
+        margin-bottom: 20px;
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+    }
+    
+    .specialty-card {
+        padding: 15px 12px;
+        margin: 0 -5px;
+    }
+    
+    .specialty-card-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .specialty-card-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .stat-badge {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+    
+    .modal-content {
+        margin: 1% auto;
+        padding: 15px;
+        width: 98%;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .stat-card {
+        padding: 10px;
+    }
+    
+    .stat-value {
+        font-size: 1.2rem;
+    }
+}
+
+/* Сверхмаленькие устройства в ландшафтной ориентации */
+@media (max-height: 400px) and (orientation: landscape) {
+    .hero {
+        padding: 60px 0 30px;
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    }
+    
+    .specialty-hero {
+        padding: 50px 0 25px;
+    }
+    
+    .hero-content,
+    .specialty-hero-content {
+        padding: 10px 0;
+    }
+    
+    .modal-content {
+        max-height: 85vh;
+        margin: 1% auto;
+    }
+}
+
+/* Улучшения для планшетов в портретной ориентации */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .specialties-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .specialty-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero-stats {
+        gap: 25px;
+    }
+    
+    .stat {
+        min-width: 140px;
+    }
+}
+
+/* Улучшения для планшетов в ландшафтной ориентации */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .specialties-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .specialty-info {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .hero-stats {
+        gap: 30px;
+    }
+}
+
+/* Большие десктопы (1200px - 1440px) */
+@media (min-width: 1200px) and (max-width: 1440px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .specialties-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Очень большие десктопы (1440px+) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .specialties-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .hero-stats {
+        gap: 50px;
+    }
+    
+    .stat {
+        min-width: 150px;
+    }
+}
+
+/* Улучшения для устройств с курсором (не сенсорные) */
+@media (hover: hover) and (pointer: fine) {
+    .specialty-card:hover .specialty-card-content h3 {
+        transform: translateX(5px);
+        transition: transform 0.3s ease;
+    }
+    
+    .info-card:hover h4 {
+        transform: translateX(3px);
+        transition: transform 0.3s ease;
+    }
+}
+
+/* Улучшения для устройств с ограниченным цветовым охватом */
+@media (monochrome) {
+    .specialty-card::before,
+    .info-card::before,
+    .section::before {
+        background: var(--text-color) !important;
+    }
+    
+    .gradient-primary,
+    .gradient-secondary,
+    .gradient-success {
+        background: var(--text-color) !important;
+    }
+}
+
+/* Улучшения для высококонтрастного режима */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dark-theme {
+        --border-color: #ffffff;
+    }
+    
+    .specialty-card,
+    .info-card,
+    .section {
+        border: 2px solid var(--border-color);
+    }
+}
+
+/* Улучшения для уменьшенного движения */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .hero-stats .stat,
+    .specialty-card,
+    .info-card {
+        animation: none;
+    }
+}
+
+/* Улучшения для темных тем системного уровня */
+@media (prefers-color-scheme: dark) {
+    body:not(.light-theme) {
+        background-color: #0f172a;
+        color: #f1f5f9;
+    }
+}
+
+/* Улучшения для светлых тем системного уровня */
+@media (prefers-color-scheme: light) {
+    body:not(.dark-theme) {
+        background-color: #fafafa;
+        color: #2d3748;
+    }
+}
+
+/* Специальные улучшения для модальных окон на мобильных */
+@media (max-width: 768px) {
+    .modal-tabs {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .modal-tab {
+        text-align: center;
+        border-radius: var(--radius);
+        margin-bottom: 5px;
+    }
+    
+    .career-step {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .career-step::before {
+        display: none;
+    }
+    
+    .career-step-number {
+        align-self: center;
+    }
+    
+    .skills-list {
+        justify-content: center;
+    }
+    
+    .education-list li {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+    
+    .education-icon {
+        align-self: center;
+    }
+}
+
+/* Улучшения для очень высоких экранов */
+@media (min-height: 1000px) {
+    .hero {
+        padding: 150px 0 100px;
+    }
+    
+    .specialty-hero {
+        padding: 120px 0 80px;
+    }
+    
+    .section {
+        margin-bottom: 60px;
+    }
+}
+
+/* Улучшения для ультра-широких мониторов */
+@media (min-width: 2000px) {
+    .container {
+        max-width: 1800px;
+    }
+    
+    .specialties-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px;
+    }
+    
+    .specialty-card {
+        padding: 30px;
+    }
+    
+    .hero-stats {
+        gap: 80px;
+    }
+    
+    .stat {
+        min-width: 200px;
+        padding: 30px;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+    }
+}
+
+/* Улучшения для устройств с маленьким экраном но высоким DPI */
+@media (max-width: 480px) and (min-resolution: 192dpi) {
+    .specialty-card-icon,
+    .card-icon {
+        font-size: 1.1rem;
+    }
+    
+    .logo-icon {
+        font-size: 1.1rem;
+    }
+}
+
+/* Улучшения доступности для скринридеров */
+@media speech {
+    .specialty-card::before,
+    .info-card::before,
+    .section::before {
+        display: none;
+    }
+    
+    .hero-stats .stat {
+        border: 1px solid;
+    }
+}
+
+/* Улучшения для устройств с наведением (десктоп) */
+@media (hover: hover) {
+    .specialty-card:hover .specialty-card-arrow {
+        transform: translateX(8px);
+    }
+    
+    .info-card:hover .card-icon {
+        transform: scale(1.15) rotate(10deg);
+    }
+}
+
+/* Адаптация системных шрифтов */
+@media (max-width: 768px) {
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
+    }
+}
+
+/* Предотвращение масштабирования на мобильных при повороте */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero,
+    .specialty-hero {
+        min-height: auto;
+    }
+}
+
+/* Улучшения для очень старых мобильных браузеров */
+@supports not (display: grid) {
+    .specialties-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .specialty-info {
+        display: block;
+    }
+    
+    .info-card {
+        margin-bottom: 20px;
+    }
+}
+
+/* ===== CRITICAL MOBILE FIXES ===== */
+
+/* Исправление проблем с viewport на iOS */
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
+/* Предотвращение текстового размера при повороте в iOS */
+@media (max-width: 768px) {
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+}
+
+/* Улучшения для Safari на iOS */
+@supports (-webkit-touch-callout: none) {
+    .hero,
+    .specialty-hero {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+    
+    .specialty-card,
+    .info-card {
+        -webkit-transform: translateZ(0);
+    }
+}
+
+/* Улучшения для мобильного Chrome */
+@supports (-webkit-overflow-scrolling: touch) {
+    .modal-content {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Специальные фиксы для Samsung Internet */
+@media (-android-chrome) {
+    .specialty-card {
+        transform: translateZ(0);
+    }
+}
+
+/* Финские улучшения для всех устройств */
+.specialty-card,
+.info-card,
+.section {
+    /* Гарантия что элементы не выходят за границы */
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Гарантия что изображения responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Улучшения для навигации клавиатурой */
+.specialty-card:focus,
+.btn:focus,
+.modal-tab:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Улучшения для RTL языков */
+[dir="rtl"] .specialty-card-arrow {
+    transform: rotate(180deg);
+}
+
+[dir="rtl"] .specialty-card:hover .specialty-card-arrow {
+    transform: rotate(180deg) translateX(-5px);
+}
